@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+:root {
+  --font-display: "Urbanist", sans-serif;
+  --breakpoint-3xl: 1920px;
+  --color-primary: #9328e7;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-display);
+  }
+
+  body {
+    background-color: #fcfbfc;
+    overflow-x: hidden;
+  }
+}
+
+/* custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba((100, 100, 100, 0.4));
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer utilities {
+  /* Animate text with a shine effect */
+
+  @keyframes text-shine {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-text-shine {
+    animation: text-shine 3s ease-in-out infinite alternate;
+  }
+}
+
+.input-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #000;
+  background-color: rgba(249, 250, 251, 0.5);
+  border-radius: 0.375rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  margin-top: 0.75rem;
+  border: 1px solid #f3f4f6;
+  outline: none;
+}
+
+.input-box:focus-within {
+  border-color: #c084fc;
+}
+
+.btn-primary {
+  width: 100%;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #000;
+  box-shadow: 0 10px 15px -3px rgba(147, 40, 231, 0.05);
+  padding: 10px;
+  border-radius: 0.375rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: rgba(147, 40, 231, 0.15);
+  color: #000;
+}
+
+.btn-small {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(to right, rgba(168, 85, 247, 0.08), #7c3aed);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.btn-small-light {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6d28d9; /* Tailwind purple-800 */
+  background-color: rgba(147, 51, 234, 0.15); /* Tailwind purple-600/15 */
+  border: 1px solid #f5f3ff; /* Tailwind purple-50 */
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.btn-small-light:hover {
+  border-color: #a78bfa; /* Tailwind purple-400 */
+}
+
+.form-input {
+  width: 100%;
+  font-size: 0.875rem; /* text-sm */
+  color: #000; /* text-black */
+  outline: none;
+  background-color: #fff; /* bg-white */
+  border: 1px solid #f1f5f9; /* border-slate-100 */
+  padding-left: 0.625rem; /* px-2.5 */
+  padding-right: 0.625rem; /* px-2.5 */
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+  border-radius: 0.375rem; /* rounded-md */
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+.form-input::placeholder {
+  color: #6b7280; /* placeholder:text-gray-500 */
+}
+
+.form-input:focus-within {
+  border-color: #c4b5fd; /* focus-within:border-purple-300 */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .resume-container,
+  .resume-container * {
+    visibility: visible;
+  }
+
+  .resume-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 210mm !important;
+  }
+}
